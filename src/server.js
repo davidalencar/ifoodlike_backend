@@ -5,6 +5,7 @@ const app = express()
 
 require('./startup/config')()
 require('./startup/db')()
+require('./startup/routers')(app)
 
 app.get('/', (req, res) => {
     return res.status(200).send('Oi')
