@@ -1,4 +1,4 @@
-const Store = require('./model.store')
+const Store = require('./store.model')
 const service = {};
 
 service.create = async (store) => {
