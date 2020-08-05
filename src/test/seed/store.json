@@ -1,12 +1,16 @@
 {
-    "name": "Erva Rasteira",
-        "complement": "Agroecologia - Produtos orgânicos toda a semana",
-        "shelfTitle": "Lista da semana",
-        "unitTitle": "Porção",
-        "productTitle": "Alimentos",
-        "minimumOrderAmount": 20,
-        "phone": "5511992533637",
-        "taxes": [
-            {"name":"Frete", "value": 10}
-        ]
+    "name": "store01",
+    "title": "Store 01",
+    "complement": "The Store 01",
+    "shelfTitle": "Menu",
+    "unitTitle": "Unit",
+    "productTitle": "Products",
+    "minimumOrderAmount": 20,
+    "phone": "55118978979879",
+    "taxes": [
+        {
+            "name": "Delivery",
+            "value": 10
+        }
+    ]
 }

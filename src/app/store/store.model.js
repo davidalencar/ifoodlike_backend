@@ -7,6 +7,12 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 60       
     },
+    title: {
+        type: String,
+        trim: true,
+        required: true,
+        maxlength: 60       
+    },
     complement:{
         type: String,
         trim: true,
