@@ -3,7 +3,8 @@ const express = require('express')
 const winston = require("winston");
 const app = express()
 
-require('./startup/infra')()
+require('./startup/config')()
+require('./startup/db')()
 
 app.get('/', (req, res) => {
     return res.status(200).send('Oi')
