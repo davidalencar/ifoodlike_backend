@@ -14,3 +14,6 @@ const server = app.listen(process.env.PORT, () => {
     winston.info(`Started on: http://localhost:${process.env.PORT}`)
   })
   
+  module.exports = {
+    server
+  }
