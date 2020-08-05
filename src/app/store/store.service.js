@@ -1,8 +1,14 @@
 const StoreModel = require('./store.model')
 const service = {};
 
-service.create = async (data) => {
-    const store = new StoreModel(data)
+service.write = async (data) => {
+    var store = await StoreModel.findOne({'name': data.name})
+    if(!store){
+        store = new StoreModel(data)
+    } else {
+        store.overwrite(data)
+    }
+        
     return await store.save()
 }
 

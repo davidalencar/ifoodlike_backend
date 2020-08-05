@@ -3,8 +3,7 @@ const StoreService = require('../../../app/store/store.service')
 const StoreModel = require('../../../app/store/store.model')
 
 
-describe('App.Store.Service', function () {
-    
+describe('App.Store.Service', function () {    
     before(function (done) {
         require('../../../startup/config')()
         require('../../../startup/db')()
@@ -14,7 +13,7 @@ describe('App.Store.Service', function () {
 
     it ('Should create a Store', function (done) {
         const payload = require('../../seed/store.json')
-        StoreService.create(payload)
+        StoreService.write(payload)
             .then((storeData) =>{
                 expect(storeData._id).toBeDefined()
                 done()
@@ -27,6 +26,16 @@ describe('App.Store.Service', function () {
                 expect(storeData._id).toBeDefined()                
                 done()
             })
-            .catch(e => console.log(e))
+    })
+
+    it ('Should update Store data by Name', function (done) {
+        const payload = require('../../seed/store.json') 
+        payload.title = 'updated title'       
+        StoreService.write(payload)
+            .then(storeData => {
+                expect(storeData._id).toBeDefined()                
+                expect(storeData.title).toBe(payload.title)                
+                done()
+            })
     })
 })
