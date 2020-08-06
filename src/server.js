@@ -5,6 +5,7 @@ const app = express()
 
 require('./startup/config')()
 require('./startup/db')()
+require('./startup/middlewares')(app)
 require('./startup/routers')(app)
 
 app.get('/', (req, res) => {
