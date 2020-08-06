@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
+    "nodemon": "npx nodemon src/server.js",
     "test": "export NODE_ENV=test && npx mocha src/test/**/*.test.js --exit"
   },
   "repository": {

@@ -13,7 +13,9 @@ service.write = async (data) => {
 }
 
 service.getByStore = async(store) => {
-    return ProductModel.find({'store': store})
+    return ProductModel.find({'store': store}).select({'store': 0, '__v': 0})
 }
+
+
 
 module.exports = service

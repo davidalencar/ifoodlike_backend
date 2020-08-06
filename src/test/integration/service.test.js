@@ -12,7 +12,7 @@ context('integration tests', function () {
                 .get('/api/stores/store01')
                 .expect(200)
                 .expect((res) => {
-                    expect(res.body.name).toBeDefined()
+                    expect(res.body.store.name).toBeDefined()
                 })
                 .end(done)
             })

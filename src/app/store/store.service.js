@@ -1,4 +1,4 @@
-const StoreModel = require('./store.model')
+const StoreModel = require('./store.model');
 const service = {};
 
 service.write = async (data) => {
@@ -13,7 +13,7 @@ service.write = async (data) => {
 }
 
 service.getByName = async (name) => {
-    return await StoreModel.findOne({'name': name}) 
+    return await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
 }
 
 module.exports = service
