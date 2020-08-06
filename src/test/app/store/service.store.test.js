@@ -23,7 +23,8 @@ describe('App.Store.Service', function () {
     it ('Should retrive Store data by Name', function (done) {
         StoreService.getByName('store01')
             .then(storeData => {
-                expect(storeData._id).toBeDefined()                
+                expect(storeData._id).toBeDefined()
+                expect(storeData.products.length).toBe(1)                
                 done()
             })
     })

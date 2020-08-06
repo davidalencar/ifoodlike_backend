@@ -1,4 +1,5 @@
 const StoreModel = require('./store.model')
+const productSevice = require('../product/product.service')
 const service = {};
 
 service.write = async (data) => {
@@ -13,7 +14,10 @@ service.write = async (data) => {
 }
 
 service.getByName = async (name) => {
-    return await StoreModel.findOne({'name': name})
+    var store = await StoreModel.findOne({'name': name}) 
+    store.products = await productSevice.getByStore(name)
+
+    return store
 }
 
 module.exports = service
