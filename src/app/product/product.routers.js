@@ -9,23 +9,7 @@ router.post('/', async (req, res) => {
         res.status(400).send()
 
 	const product = await service.write(req.body);
-	res.send(product);
+	res.status((req.body._id) ? 200 : 201).send(product);
 });
-
-
-router.get('/:id', async (req, res) => {
-	const store = await service.getByName(req.params.id)
-    const products = await productSevice.getByStore(req.params.id)
-	
-	if (!store)
-		return res.status(404).send("Store was not found");
-	
-	var ret = {
-		store,
-		products
-	}
-	
-	res.send(ret)
-})
 
 module.exports = router
