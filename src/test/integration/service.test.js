@@ -13,6 +13,7 @@ context('integration tests', function () {
             store.save().then(() => done())
         })
     })
+
     describe('api/store', function () {
         describe('GET/:id', function () {
             it('Should return data', function (done) {
@@ -39,8 +40,10 @@ context('integration tests', function () {
                     expect(res.body.name).toBeDefined()
                 })
                 .end(done)
-            })
+            })            
+        })
 
+        describe('PUT/', function() {
             it('Should update store', function (done) {
                 StoreModel.findOne({}).then(payload => {
                     payload.name = 'newstorenamefortest'
@@ -71,14 +74,16 @@ context('integration tests', function () {
                     expect(res.body._id).toBeDefined()
                 })
                 .end(done)
-            })
+            })            
+        })
 
+        describe('PUT/:id', function() {
             it('Should update a product', function (done) {
                 ProductModel.findOne({}).then(
                     payload => {
                         payload.name = 'product test name for update'
                         request(server)
-                        .post('/api/products')
+                        .put('/api/products/' + payload._id.toString())
                         .set('Content-Type', 'application/json')
                         .send(payload)
                         .expect(200)
@@ -92,4 +97,5 @@ context('integration tests', function () {
             })
         })
     })
+
 })

@@ -5,11 +5,15 @@ const storeService = require('../store/store.service')
 const router = express.Router()
 
 router.post('/', async (req, res) => {
-    if (!storeService.exists(req.body.store))
-        res.status(400).send()
+	service.create(req.body).then(product => {
+        res.status(201).send(product)
+    })
+});
 
-	const product = await service.write(req.body);
-	res.status((req.body._id) ? 200 : 201).send(product);
+router.put('/:id', async (req, res) => {
+    service.update(req.body).then(product => {
+        res.send(product)
+    })
 });
 
 module.exports = router
