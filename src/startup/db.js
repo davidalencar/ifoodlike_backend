@@ -6,7 +6,8 @@ module.exports = function() {
 		.connect(process.env.MONGODB_URI, {
 			useUnifiedTopology: true,
 			useNewUrlParser: true,
-			useCreateIndex: true
+			useCreateIndex: true,
+			retryWrites: false
 		})
         .then(() => winston.info(`Connected to DB: ${process.env.MONGODB_URI}`))
         .catch((e) => winston.error(e))        

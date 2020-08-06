@@ -6,8 +6,17 @@ const productSevice = require('../product/product.service')
 const router = express.Router()
 
 router.post('/', async (req, res) => {
-	const store = await service.write(req.body);
-	res.send(store);
+	service.create(req.body).then( store => {
+		res.status(201).send(store)
+	})
+});
+
+router.put('/:id', async (req, res) => {
+	service.update(req.body).then( store => {
+		res.send(store)
+	}).catch(e => {
+		res.status(501).send(e)
+	})
 });
 
 

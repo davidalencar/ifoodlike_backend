@@ -6,6 +6,13 @@ const server = require('../../server');
 
 
 context('integration tests', function () {
+    before(function(done){
+        StoreModel.deleteMany({}, () => {
+            const testStore = require('../seed/store.json')
+            const store = new StoreModel(testStore)
+            store.save().then(() => done())
+        })
+    })
     describe('api/store', function () {
         describe('GET/:id', function () {
             it('Should return data', function (done) {
@@ -22,11 +29,12 @@ context('integration tests', function () {
         describe('POST/', function () {
             it('Should create store', function (done) {
                 const payload = require('../seed/store.json')
+                payload.name = 'storePOSTtest01'
                 request(server)
                 .post('/api/stores')
                 .set('Content-Type', 'application/json')
                 .send(payload)
-                .expect(200)
+                .expect(201)
                 .expect((res) => {
                     expect(res.body.name).toBeDefined()
                 })
@@ -37,7 +45,7 @@ context('integration tests', function () {
                 StoreModel.findOne({}).then(payload => {
                     payload.name = 'newstorenamefortest'
                     request(server)
-                    .post('/api/stores')
+                    .put('/api/stores/' + payload.name)
                     .set('Content-Type', 'application/json')
                     .send(payload)
                     .expect(200)
