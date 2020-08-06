@@ -1,6 +1,5 @@
-const _ = require("lodash")
-
 const express = require("express")
+
 const service = require('./store.service')
 const productSevice = require('../product/product.service')
 
