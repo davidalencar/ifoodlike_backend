@@ -11,7 +11,7 @@ describe('App.Product.Service', function () {
     })
 
     it ('Should create product', function (done) {
-        const payload = require('../../seed/product.json')
+        const payload = require('../../seed/product.json')        
         ProductService.write(payload)
             .then(product =>{
                 expect(product._id).toBeDefined()

@@ -64,14 +64,17 @@ context('integration tests', function () {
     describe('api/products', function () {
         describe('POST/', function () {
             it('Should cretae a product', function (done) {
-                const payload = require('../seed/product.json')
+                seed = require('../seed/product.json')
+                const payload = {
+                    products: [seed]
+                } 
                 request(server)
                 .post('/api/products')
                 .set('Content-Type', 'application/json')
                 .send(payload)
                 .expect(201)
                 .expect((res) => {
-                    expect(res.body._id).toBeDefined()
+                    expect(res.body.status).toBeDefined()
                 })
                 .end(done)
             })            

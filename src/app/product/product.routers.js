@@ -5,9 +5,13 @@ const storeService = require('../store/store.service')
 const router = express.Router()
 
 router.post('/', async (req, res) => {
-	service.create(req.body).then(product => {
-        res.status(201).send(product)
-    })
+    let saves = []
+    req.body.products.forEach(p => {
+        saves.push(service.create(p))
+    }); 
+    Promise.all(saves).then(() => {
+        res.status(201).send({status: 'OK'})
+    })   
 });
 
 router.put('/:id', async (req, res) => {
