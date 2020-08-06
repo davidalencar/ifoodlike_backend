@@ -1,6 +1,7 @@
 const request = require("supertest");
 const expect = require('expect')
 const ProductModel = require('../../app/product/product.model')
+const StoreModel = require('../../app/store/store.model')
 const server = require('../../server');
 
 
@@ -15,6 +16,36 @@ context('integration tests', function () {
                     expect(res.body.store.name).toBeDefined()
                 })
                 .end(done)
+            })
+        })
+
+        describe('POST/', function () {
+            it('Should create store', function (done) {
+                const payload = require('../seed/store.json')
+                request(server)
+                .post('/api/stores')
+                .set('Content-Type', 'application/json')
+                .send(payload)
+                .expect(200)
+                .expect((res) => {
+                    expect(res.body.name).toBeDefined()
+                })
+                .end(done)
+            })
+
+            it('Should update store', function (done) {
+                StoreModel.findOne({}).then(payload => {
+                    payload.name = 'newstorenamefortest'
+                    request(server)
+                    .post('/api/stores')
+                    .set('Content-Type', 'application/json')
+                    .send(payload)
+                    .expect(200)
+                    .expect((res) => {
+                        expect(res.body.name).toBe(payload.name)
+                    })
+                    .end(done)
+                })
             })
         })
     })
