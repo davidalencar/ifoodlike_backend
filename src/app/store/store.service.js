@@ -16,4 +16,8 @@ service.getByName = async (name) => {
     return await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
 }
 
+service.exists = async (name) => {
+    return StoreModel.exists({'name': name});
+}
+
 module.exports = service

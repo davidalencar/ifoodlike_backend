@@ -1,13 +1,15 @@
 const express = require("express")
-
-const service = require('./store.service')
-const productSevice = require('../product/product.service')
+const service = require('./product.service')
+const storeService = require('../store/store.service')
 
 const router = express.Router()
 
 router.post('/', async (req, res) => {
-	const store = await service.write(req.body);
-	res.send(store);
+    if (!storeService.exists(req.body.store))
+        res.status(400).send()
+
+	const product = await service.write(req.body);
+	res.send(product);
 });
 
 
