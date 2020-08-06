@@ -4,9 +4,12 @@ const storeSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true,
+        immutable: true,
         trim: true,
+        lowercase: true,
         required: true,
-        maxlength: 60       
+        maxlength: 60,
+        match: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/        
     },
     title: {
         type: String,
