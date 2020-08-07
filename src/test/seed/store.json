@@ -12,5 +12,9 @@
             "name": "Delivery",
             "value": 10
         }
-    ]
+    ],
+    "categories": [{
+        "name": "category01",
+        "order": 1
+    }]
 }

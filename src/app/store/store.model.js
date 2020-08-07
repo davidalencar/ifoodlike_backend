@@ -62,6 +62,22 @@ const storeSchema = new mongoose.Schema({
             type: Number,
             required: true
         }
+    }],
+    categories: [{
+        name: {
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 60       
+        },
+        enable : {
+            type: Boolean,
+            default: true
+        },
+        order: {
+            type: Number,
+            default: 0
+        }
     }]
 });
 
