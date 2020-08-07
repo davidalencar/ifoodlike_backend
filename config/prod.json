@@ -1,6 +1,6 @@
 {
     "ENV": {
         "PORT": 3000,
-        "MONGODB_URI": "mongodb://loja:CdVmoINEtG5kroKA6Df7NiSfcJsjMl4nO3mUwDs1yPlcD8LwDUJJ80DYNSOLc8ojqbisEsoXadGIPRlYslukAA==@loja.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@loja@"
+        "MONGODB_URI": "mongodb://heroku_z0262w03:m3pns0rltupjs9ufd0buia5s4l@ds055574.mlab.com:55574/heroku_z0262w03"
     }
 }
