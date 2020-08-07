@@ -1,6 +1,5 @@
 {
     "ENV": {
-        "PORT": 3000,
         "MONGODB_URI": "mongodb://heroku_z0262w03:m3pns0rltupjs9ufd0buia5s4l@ds055574.mlab.com:55574/heroku_z0262w03"
     }
 }
