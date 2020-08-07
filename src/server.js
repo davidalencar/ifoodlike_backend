@@ -11,8 +11,9 @@ require('./startup/routers')(app)
 app.get('/', (req, res) => {
     return res.status(200).send('Oi')
 })
+const PORT = process.env.PORT || 3000;
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(PORT, () => {
     winston.info(`Started on: http://localhost:${process.env.PORT}`)
   })
   
