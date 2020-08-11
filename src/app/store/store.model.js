@@ -8,6 +8,7 @@ const storeSchema = new mongoose.Schema({
         trim: true,
         lowercase: true,
         required: true,
+        minlength: 5,
         maxlength: 60,
         match: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/        
     },
