@@ -51,7 +51,17 @@ const storeSchema = new mongoose.Schema({
 		minlength: 8,
 		maxlength: 20,
 		trim: true
-	},
+    },
+    questions : {
+        address: {
+            type: Boolean,
+            default: true
+        },
+        phone: {
+            type: Boolean,
+            default: false
+        }
+    },
     taxes:[{
         name:{
             type: String,
