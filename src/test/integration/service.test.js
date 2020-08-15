@@ -2,6 +2,7 @@ const request = require("supertest");
 const expect = require('expect')
 const ProductModel = require('../../app/product/product.model')
 const StoreModel = require('../../app/store/store.model')
+const UserModel = request('../../app/user/user.model')
 const server = require('../../server');
 
 
@@ -10,7 +11,27 @@ context('integration tests', function () {
         StoreModel.deleteMany({}, () => {
             const testStore = require('../seed/store.json')
             const store = new StoreModel(testStore)
-            store.save().then(() => done())
+            store.save().then(() => {
+                done()
+                // UserModel.deleteMany({}, () => done())
+            })
+        })
+    })
+
+    describe('api/user', function () {
+        describe('POST/', function () {
+            it('Should create user', function (done) {
+                const payload = require('../seed/user.json')
+                request(server)
+                .post('/api/users')
+                .set('Content-Type', 'application/json')
+                .send(payload)
+                .expect(201)
+                .expect((res) => {
+                    expect(res.body.name).toBeDefined()
+                })
+                .end(done)
+            })
         })
     })
 

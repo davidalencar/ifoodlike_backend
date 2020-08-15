@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
-    winston.info(`Started on: http://localhost:${process.env.PORT}`)
+    winston.info(`Started on: http://localhost:${PORT}`)
   })
   
   module.exports = server

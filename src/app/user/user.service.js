@@ -7,13 +7,13 @@ services.get = async email => {
 	return await User.findOne({ email: email });
 };
 
-services.create = async (name, email, password) => {
-	password = await hashPassword(password);
+services.create = async (data) => {
 
 	const user = new User({
-		name,
-		email,
-		password
+		name: data.name,
+		email: data.email,
+		phone: data.phone,
+		password: await hashPassword(data.password)
 	});
 
 	return await user.save();
