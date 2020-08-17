@@ -4,6 +4,7 @@ const ProductModel = require('../../app/product/product.model')
 const StoreModel = require('../../app/store/store.model')
 const UserModel = require('../../app/user/user.model')
 const server = require('../../server');
+const expectExport = require("expect");
 
 
 context('integration tests', function () {
@@ -113,6 +114,7 @@ context('integration tests', function () {
                 .send(payload)
                 .expect(201)
                 .expect((res) => {
+                    console.log(res.body)
                     expect(res.body.status).toBeDefined()
                 })
                 .end(done)
@@ -132,6 +134,7 @@ context('integration tests', function () {
                         .expect((res) => {
                             expect(res.body._id).toBe(payload._id.toString())
                             expect(res.body.name).toBe(payload.name)
+                            expect(res.body.items).toBeDefined()
                         })
                         .end(done)
                     }

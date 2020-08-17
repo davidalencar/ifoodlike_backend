@@ -38,7 +38,30 @@ const productSchema = new mongoose.Schema({
     enable: {
         type: Boolean,
         default: true
-    }
+    }, 
+    items: [{
+        name: {
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 60       
+        },    
+        description:{
+            type: String,
+            trim: true,
+            maxlength: 255
+        },    
+        unit: {
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 20
+        },
+        price: {
+            type: Number,
+            default: 1
+        }
+    }]
 });
 
 module.exports = mongoose.model("Product", productSchema);
