@@ -78,6 +78,7 @@ context('integration tests', function () {
                 .expect(201)
                 .expect((res) => {
                     expect(res.body.name).toBeDefined()
+                    expect(res.body.paym).toBeDefined()
                 })
                 .end(done)
             })            

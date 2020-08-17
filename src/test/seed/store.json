@@ -20,5 +20,15 @@
     "categories": [{
         "name": "category01",
         "order": 1
-    }]
+    }],
+    "paym": {
+        "money": true,
+        "credit": true,
+        "transfer": {
+            "enable": true,
+            "bank": "bank01",
+            "account": "001-9383",
+            "document": "doc: 890218290"
+        }
+    }
 }

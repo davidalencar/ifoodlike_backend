@@ -89,7 +89,17 @@ const storeSchema = new mongoose.Schema({
             type: Number,
             default: 0
         }
-    }]
+    }],
+    paym: {
+        money: Boolean,
+        credit: Boolean,
+        transfer: {
+            enable: Boolean,
+            bank: String,
+            account: String,
+            document: String,
+        }
+    }
 });
 
 module.exports = mongoose.model("Store", storeSchema);
