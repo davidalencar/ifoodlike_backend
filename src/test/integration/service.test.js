@@ -2,18 +2,23 @@ const request = require("supertest");
 const expect = require('expect')
 const ProductModel = require('../../app/product/product.model')
 const StoreModel = require('../../app/store/store.model')
-const UserModel = request('../../app/user/user.model')
+const UserModel = require('../../app/user/user.model')
 const server = require('../../server');
 
 
 context('integration tests', function () {
     before(function(done){
-        StoreModel.deleteMany({}, () => {
+        var clearDB = []
+
+        clearDB.push(UserModel.deleteMany({}))
+        clearDB.push(StoreModel.deleteMany({}))
+
+        Promise.all(clearDB).then(() => {
             const testStore = require('../seed/store.json')
             const store = new StoreModel(testStore)
             store.save().then(() => {
                 done()
-                // UserModel.deleteMany({}, () => done())
+                
             })
         })
     })
@@ -29,6 +34,7 @@ context('integration tests', function () {
                 .expect(201)
                 .expect((res) => {
                     expect(res.body.name).toBeDefined()
+                    expect(res.body.plan).toBe('pro')
                 })
                 .end(done)
             })

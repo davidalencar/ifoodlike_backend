@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     },
     email: {
 		type: String,
-		requried: true,
+		required: true,
         lowercase: true,
         trim: true,
 		minlength: 5,
@@ -26,9 +26,14 @@ const userSchema = new mongoose.Schema({
     },
 	password: {
 		type: String,
-		requried: true,
+		required: true,
 		minlength: 5,
 		maxlength: 60
+	},
+	plan: {
+		type: String,
+		required: true,
+		default: 'basic'
 	},
 	isAdmin: Boolean
 })
