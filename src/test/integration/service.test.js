@@ -39,6 +39,18 @@ context('integration tests', function () {
                 .end(done)
             })
         })
+
+        describe('GET/:eamil', function () {
+            it('Should get user', function (done) {
+                request(server)
+                .get('/api/users/useremail@email.com')
+                .expect(200)
+                .expect((res) => {
+                    expect(res.body.name).toBeDefined()
+                })
+                .end(done)
+            })
+        })
     })
 
     describe('api/store', function () {
