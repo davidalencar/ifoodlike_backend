@@ -9,13 +9,13 @@ const productSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        maxlength: 60       
-    },    
-    description:{
+        maxlength: 60
+    },
+    description: {
         type: String,
         trim: true,
         maxlength: 255
-    },    
+    },
     unit: {
         type: String,
         trim: true,
@@ -26,11 +26,11 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 1
     },
-    qty : {
+    qty: {
         type: Number,
         default: 0
     },
-    maxQty : {
+    maxQty: {
         type: Number,
         default: 0
     },
@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        maxlength: 60       
+        maxlength: 60
     },
     img: {
         type: String
@@ -46,38 +46,52 @@ const productSchema = new mongoose.Schema({
     enable: {
         type: Boolean,
         default: true
-    }, 
-    items: [{
-        name: {
-            type: String,
-            trim: true,
-            required: true,
-            maxlength: 60       
-        },    
-        description:{
-            type: String,
-            trim: true,
-            maxlength: 255
-        },    
-        unit: {
-            type: String,
-            trim: true,
-            required: true,
-            maxlength: 20
-        },
-        price: {
-            type: Number,
-            default: 1
-        },
-        qty : {
-            type: Number,
-            default: 0
-        },
-        maxQty : {
-            type: Number,
-            default: 0
-        }
-    }]
+    },
+    items: [
+        {
+            name: {
+                type: String,
+                trim: true,
+                required: true,
+                maxlength: 120
+            },
+            order: {
+                type: Number,
+                default: 0
+            },
+            products: [
+                {
+                    name: {
+                        type: String,
+                        trim: true,
+                        required: true,
+                        maxlength: 60
+                    },
+                    description: {
+                        type: String,
+                        trim: true,
+                        maxlength: 255
+                    },
+                    unit: {
+                        type: String,
+                        trim: true,
+                        maxlength: 20
+                    },
+                    price: {
+                        type: Number,
+                        default: 1
+                    },
+                    qty: {
+                        type: Number,
+                        default: 0
+                    },
+                    maxQty: {
+                        type: Number,
+                        default: 0
+                    }
+                }
+            ]
+        }]
 });
 
 module.exports = mongoose.model("Product", productSchema);

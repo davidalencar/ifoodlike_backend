@@ -6,12 +6,30 @@
     "price": 3.00,
     "category": "category01",
     "enable": true,
-    "items": [
+    "items" : [
+        {            
+            "name": "category01",
+            "order": 1,
+            "items": [
+                {
+                    "name": "product01 ",
+                    "unit": "unit",
+                    "description": "Quisque in sollicitudin risus. Aenean eu massa lacinia, tempus nulla eu, gravida tortor. Fusce eu accumsan eros. Nulla libero justo, vulputate quis placerat sit amet, elementum et.",
+                    "price": 3.00
+                }
+            ]
+        },
         {
-            "name": "product01 ",
-            "unit": "unit",
-            "description": "Quisque in sollicitudin risus. Aenean eu massa lacinia, tempus nulla eu, gravida tortor. Fusce eu accumsan eros. Nulla libero justo, vulputate quis placerat sit amet, elementum et.",
-            "price": 3.00
+            "name": "category02",
+            "order": 1,
+            "items": [
+                {
+                    "name": "product01 ",
+                    "unit": "unit",
+                    "description": "Quisque in sollicitudin risus. Aenean eu massa lacinia, tempus nulla eu, gravida tortor. Fusce eu accumsan eros. Nulla libero justo, vulputate quis placerat sit amet, elementum et.",
+                    "price": 3.00
+                }
+            ]
         }
     ]
 }
