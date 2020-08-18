@@ -26,6 +26,14 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 1
     },
+    qty : {
+        type: Number,
+        default: 0
+    },
+    maxQty : {
+        type: Number,
+        default: 0
+    },
     category: {
         type: String,
         trim: true,
@@ -60,6 +68,14 @@ const productSchema = new mongoose.Schema({
         price: {
             type: Number,
             default: 1
+        },
+        qty : {
+            type: Number,
+            default: 0
+        },
+        maxQty : {
+            type: Number,
+            default: 0
         }
     }]
 });
