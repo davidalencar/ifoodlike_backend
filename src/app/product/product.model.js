@@ -55,6 +55,11 @@ const productSchema = new mongoose.Schema({
                 required: true,
                 maxlength: 120
             },
+            type: {
+                trim: true,
+                type: String,
+                default: ''
+            },
             order: {
                 type: Number,
                 default: 0
