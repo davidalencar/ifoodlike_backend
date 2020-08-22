@@ -126,7 +126,7 @@ context('integration tests', function () {
                         request(server)
                             .put('/stores/' + store_test.name)
                             .set('Content-Type', 'application/json')
-                            .set("x-auth-token", token)
+                            .set("Authorization", token)
                             .send(store_test)
                             .expect(200)
                             .expect((res) => {
@@ -148,7 +148,7 @@ context('integration tests', function () {
                 userService.generateAuthToken(user_test).then(token => {
                     request(server)
                         .post('/products/store01')
-                        .set("x-auth-token", token)
+                        .set("Authorization", token)
                         .set('Content-Type', 'application/json')
                         .send(payload)
                         .expect(201)
@@ -169,7 +169,7 @@ context('integration tests', function () {
                             request(server)
                                 .put('/products/store01/' + payload._id.toString())
                                 .set('Content-Type', 'application/json')
-                                .set("x-auth-token", token)
+                                .set("Authorization", token)
                                 .send(payload)
                                 .expect(200)
                                 .expect((res) => {
