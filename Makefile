@@ -1,6 +1,9 @@
 start:
 	npm run start
 
+dev:
+	npm run dev
+
 lint:
 	npx eslint .
 
