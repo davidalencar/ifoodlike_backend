@@ -10,7 +10,7 @@ services.get = async email => {
 services.create = async (data) => {
 
 	const user = new UserModel({
-		name: data.name,
+		alias: data.alias,
 		email: data.email,
 		phone: data.phone,
 		plan: data.plan,

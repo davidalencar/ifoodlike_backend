@@ -1,10 +1,12 @@
+const _ = require('lodash')
 const request = require("supertest");
 const expect = require('expect')
 const ProductModel = require('../../app/product/product.model')
 const StoreModel = require('../../app/store/store.model')
 const UserModel = require('../../app/user/user.model')
+const userService = require('../../app/user/user.service')
 const server = require('../../server');
-const expectExport = require("expect");
+
 
 
 context('integration tests', function () {
@@ -14,12 +16,38 @@ context('integration tests', function () {
         clearDB.push(UserModel.deleteMany({}))
         clearDB.push(StoreModel.deleteMany({}))
 
+
         Promise.all(clearDB).then(() => {
+            var preDataTest = []
             const testStore = require('../seed/store.json')
+            var testUser = require('../seed/user-login.json')
+
             const store = new StoreModel(testStore)
-            store.save().then(() => {
+            
+
+            preDataTest.push(store.save())
+            preDataTest.push(userService.create(testUser))
+            Promise.all(preDataTest).then(() => {
                 done()
                 
+            })
+        })
+    })
+
+    describe('api/accounts', function () {
+        describe('POST/', function () {
+            it('Should login', function (done) {                                
+                const payload = _.pick(require('../seed/user-login.json'), 'email', 'password')
+                
+                request(server)
+                .post('/api/accounts')
+                .set('Content-Type', 'application/json')
+                .send(payload)
+                .expect(200)
+                .expect((res) => {
+                    expect(res.body.access_token).toBeDefined()
+                })
+                .end(done)
             })
         })
     })
@@ -34,7 +62,7 @@ context('integration tests', function () {
                 .send(payload)
                 .expect(201)
                 .expect((res) => {
-                    expect(res.body.name).toBeDefined()
+                    expect(res.body.alias).toBeDefined()
                     expect(res.body.plan).toBe('pro')
                 })
                 .end(done)
@@ -47,7 +75,7 @@ context('integration tests', function () {
                 .get('/api/users/useremail@email.com')
                 .expect(200)
                 .expect((res) => {
-                    expect(res.body.name).toBeDefined()
+                    expect(res.body.alias).toBeDefined()
                 })
                 .end(done)
             })

@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/:email', (req, res) => {
 	service.get(req.params.email).then(user => {
 		if(!user) {
-			return res.send(404).send({})
+			return res.status(404).send({})
 		}
 
 		return res.status(200).send(user)

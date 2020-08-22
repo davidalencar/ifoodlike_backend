@@ -1,5 +1,7 @@
 {
     "ENV": {
         "MONGODB_URI": "mongodb://localhost:27017/loja_api"
-    }
+    },
+    "jwtPrivateKey": "M4LEHZ39Uu08M2MSCvu3BZMRFjvQ6PYb0bg7I9yaQkR12NI4VWW7Qal6IdS5"
+
 }
