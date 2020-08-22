@@ -1,9 +1,9 @@
 const express = require("express")
-
-const service = require('./store.service')
-const productSevice = require('../product/product.service')
-
 const router = express.Router()
+
+const auth = require('../../middlewares/auth.middleware')
+const productSevice = require('../product/product.service')
+const service = require('./store.service')
 
 router.post('/', async (req, res) => {
 	service.create(req.body).then( store => {
@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
 	})
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
 	service.update(req.body).then( store => {
 		res.send(store)
 	}).catch(e => {

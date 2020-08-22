@@ -1,5 +1,5 @@
 {
-    "alias" : "username",
+    "name" : "username",
     "email" : "useremail@email.com",
     "phone": "99999999999",
     "plan": "pro",

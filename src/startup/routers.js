@@ -6,8 +6,8 @@ const account = require('../app/accounts/account.routers')
 
 module.exports = (app) => {
 
-    app.use('/api/users', user)
-    app.use('/api/stores', store)
-    app.use('/api/products', product)
-    app.use('/api/accounts', account)
+    app.use('/users', user)
+    app.use('/stores', store)
+    app.use('/accounts', account)
+    app.use('/products', product)
 }

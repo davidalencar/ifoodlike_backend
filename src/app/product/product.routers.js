@@ -1,10 +1,12 @@
 const express = require("express")
 const service = require('./product.service')
+const auth = require('../../middlewares/auth.middleware')
+
 const storeService = require('../store/store.service')
 
 const router = express.Router()
 
-router.post('/', async (req, res) => {
+router.post('/:id',auth, async (req, res) => {
     let saves = []
     req.body.products.forEach(p => {
         saves.push(service.create(p))
@@ -14,7 +16,7 @@ router.post('/', async (req, res) => {
     })   
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id/:pid',auth, async (req, res) => {
     service.update(req.body).then(product => {
         res.send(product)
     })

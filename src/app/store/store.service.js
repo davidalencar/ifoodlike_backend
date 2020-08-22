@@ -16,6 +16,11 @@ service.getByName = async (name) => {
     return await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
 }
 
+service.getByUser = async (useId) => {
+    const stores = await StoreModel.find({'user': useId}).select({'name' : 1, '_id': 0})
+    return stores.map(s => s.name)
+}
+
 service.exists = async (name) => {
     return StoreModel.exists({'name': name});
 }

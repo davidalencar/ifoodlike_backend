@@ -6,8 +6,16 @@ module.exports = function (req, res, next) {
 	if (!token) return res.status(401).send("Access deined. No token provided.");
 
 	try {
-		const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
-		req.user = decoded;
+		
+		const user = jwt.verify(token, config.get("jwtPrivateKey"));	
+		
+		console.log('---------USER TOKEN \n', user)
+		console.log('---------PARAM \n', req.params)
+
+		if (!user.stores.includes(req.params.id)) res.status(401).send("Access deined.");
+
+		req.user = user;
+
 		next();
 	} catch (ex) {
 		res.status(400).send("Invalid token.");
