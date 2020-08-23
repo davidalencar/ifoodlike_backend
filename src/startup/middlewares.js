@@ -4,8 +4,8 @@ const compression = require("compression")
 const cors = require('cors')
 
 const corsOptions = {
-  // methods: 'GET',
-  // origin: [/\.bslista\.com$/]
+  
+   origin: [/\.bslista\.com$/]
 }
 
 module.exports = function (app) {
