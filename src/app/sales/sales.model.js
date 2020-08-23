@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const salesSchema = new mongoose.Schema({
     store: String,
+    time : { type : Date, default: Date.now }
     cust: { type: Schema.Types.ObjectId, ref: 'Customer' },
     paymMethod: String,
     lines: [{
