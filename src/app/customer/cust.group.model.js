@@ -10,7 +10,7 @@ const customerTagSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId, 
         ref: 'Customer'
      },
-    name: {
+    tag: {
         type: String,
         trim: true,
         required: true,

@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { string } = require('joi');
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const customerSchema = new mongoose.Schema({    
@@ -24,7 +25,10 @@ const customerSchema = new mongoose.Schema({
         city: String,
         state: String,
         complement: String
-    }
+    },
+    stores: [{
+        name: String
+    }]
 })
 
 customerSchema.plugin(AutoIncrement, {inc_field: 'custId'});

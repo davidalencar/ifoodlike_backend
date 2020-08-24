@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
 	const stores = await storeService.getByUser(user._id.toString())
 	res.send({
 		access_token,
+		userName: user.name,
 		stores
 	})
 })
