@@ -7,6 +7,17 @@ const salesSchema = new mongoose.Schema({
     time : { type : Date, default: Date.now },
     cust: { type: Schema.Types.ObjectId, ref: 'Customer' },
     paymMethod: String,
+    totalAmount: Number,
+    instruction: String,
+    taxes:[{
+        name:{
+            type: String,
+            trim: true
+        }, 
+        value:{
+            type: Number
+        }
+    }],
     lines: [{
         qty: Number,
         product: String,

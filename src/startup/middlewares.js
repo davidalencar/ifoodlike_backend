@@ -4,7 +4,6 @@ const compression = require("compression")
 const cors = require('cors')
 
 const corsOptions = {
-  
    origin: [/\.bslista\.com$/]
 }
 

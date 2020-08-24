@@ -15,6 +15,14 @@
     "order": {
         "store": "store01",
         "paymMethod": "transfer",
+        "totalAmount": 100,
+        "instruction": "String",
+        "taxes": [
+            {
+                "name": "String",
+                "value": 10
+            }
+        ],
         "lines": [
             {
                 "qty": 1,

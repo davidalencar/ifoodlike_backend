@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const express = require('express')
 
 const userService = require('../user/user.service')
+const storeService = require('../store/store.service')
 
 const router = express.Router()
 
@@ -18,7 +19,11 @@ router.post('/', async (req, res) => {
 	if (!validPassword) return res.status(400).send('Invalid email or password.')
 
 	const access_token = await userService.generateAuthToken(user)
-	res.send({access_token})
+	const stores = await storeService.getByUser(user._id.toString())
+	res.send({
+		access_token,
+		stores
+	})
 })
 
 function validate(req) {
