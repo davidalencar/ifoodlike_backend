@@ -26,6 +26,16 @@ router.post('/:id',auth, async (req, res) => {
     })   
 });
 
+router.put('/control/:id',auth, async (req, res) => {
+    let saves = []
+    req.body.products.forEach(p => {
+        saves.push(service.control(p))
+    }); 
+    Promise.all(saves).then(() => {
+        res.status(201).send({status: 'OK'})
+    })   
+});
+
 router.put('/:id/:pid',auth, async (req, res) => {
     service.update(req.body).then(product => {
         res.send(product)

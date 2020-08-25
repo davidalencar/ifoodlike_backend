@@ -13,6 +13,13 @@ service.update = async (data) => {
     return await product.save()
 }
 
+service.control = async (data) => {
+    var product = await ProductModel.findById(data.id)
+    product.enable = data.enable;
+    
+    return await product.save()
+}
+
 service.getByStore = async(store) => {
     return ProductModel.find({'store': store}).select({'store': 0, '__v': 0})
 }
