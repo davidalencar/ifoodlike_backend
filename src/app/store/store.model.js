@@ -33,12 +33,6 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 60
     },
-    unitTitle: {
-        type: String,
-        trim: true,
-        required: true,
-        maxlength: 10
-    },
     productTitle: {
         type: String,
         trim: true,

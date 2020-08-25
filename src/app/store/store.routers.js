@@ -35,4 +35,13 @@ router.get('/:id', async (req, res) => {
 	res.send(ret)
 })
 
+router.get('/control/:id', auth, async (req, res) => {
+	const store = await service.getByName(req.params.id)
+   	
+	if (!store)
+		return res.status(404).send("Store was not found");
+	
+	res.send({store})
+})
+
 module.exports = router
