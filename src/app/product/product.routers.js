@@ -6,6 +6,16 @@ const storeService = require('../store/store.service')
 
 const router = express.Router()
 
+router.get('/:id', auth, async (req, res) => {
+    const store = await storeService.getByName(req.params.id)
+    const products = await service.getByStore(req.params.id)
+        
+        res.send({
+            categories: store.categories,
+            products
+        })
+})
+
 router.post('/:id',auth, async (req, res) => {
     let saves = []
     req.body.products.forEach(p => {
