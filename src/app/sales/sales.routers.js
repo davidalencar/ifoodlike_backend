@@ -17,4 +17,15 @@ router.get('/:id',auth, async (req, res) => {
 	res.send({sales})
 })
 
+router.put('/status/:id',auth, async (req, res) => {
+	let saves = []
+	
+    req.body.status.forEach(s => {
+        saves.push(service.updateStatus(s.salesId, s.newStatus))
+    }); 
+    Promise.all(saves).then(() => {
+        res.status(200).send({status: 'OK'})
+    })   
+});
+
 module.exports = router

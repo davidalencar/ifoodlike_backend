@@ -25,4 +25,11 @@ service.getByStore = async (store) => {
     return sales;
 }
 
+service.updateStatus = async (salesId, status) => {
+    var sale = await SalesModel.findOne({ 'salesId': salesId });
+    sale.status = status;
+    
+    return sale.save()
+}
+
 module.exports = service
