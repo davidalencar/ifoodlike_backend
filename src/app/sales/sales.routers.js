@@ -11,6 +11,16 @@ router.post('/', async (req, res) => {
 	})
 });
 
+router.post('/deleteMany/:id',auth, async (req, res) => {
+	let saves = []
+	
+    req.body.sales.forEach(s => {
+        saves.push(service.delete(s.salesId))
+    }); 
+    Promise.all(saves).then(() => {
+        res.status(200).send({status: 'OK'})
+    })   
+})
 
 router.get('/:id',auth, async (req, res) => {
 	const sales = await service.getByStore(req.params.id)

@@ -32,4 +32,8 @@ service.updateStatus = async (salesId, status) => {
     return sale.save()
 }
 
+service.delete = async (salesId) => {
+    return SalesModel.findOneAndRemove({ 'salesId': salesId });
+}
+
 module.exports = service
