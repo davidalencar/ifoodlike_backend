@@ -20,7 +20,7 @@ service.create = async (data) => {
 
 
 service.getByStore = async (store) => {
-    const sales = await SalesModel.find({ 'store': store }).populate('cust')
+    const sales = await SalesModel.find({ 'store': store }).sort({'salesId': 'asc'}) .populate('cust')
 
     return sales;
 }
