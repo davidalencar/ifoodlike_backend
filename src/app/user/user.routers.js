@@ -16,8 +16,11 @@ router.get('/:email', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-	service.create(req.body).then( user => {
-		res.status(201).send(user)
+			
+	service.createWithStore(req.body).then( user => {
+		res.status(201).send({status: 'OK', user})
+	}).catch(e => {
+		res.status(201).send({status: e.msg})
 	})
 });
 

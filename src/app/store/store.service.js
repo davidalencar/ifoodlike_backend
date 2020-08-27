@@ -2,7 +2,14 @@ const StoreModel = require('./store.model');
 const service = {};
 
 service.create = async (data) => {    
-    store = new StoreModel(data)
+    var store = new StoreModel(data)
+    return await store.save()
+}
+
+
+service.createFromTemplate = async (name) => {    
+    var store = new StoreModel(require('./template.json'))
+    store.name = name;
     return await store.save()
 }
 
@@ -24,5 +31,6 @@ service.getByUser = async (useId) => {
 service.exists = async (name) => {
     return StoreModel.exists({'name': name});
 }
+
 
 module.exports = service

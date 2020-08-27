@@ -1,0 +1,46 @@
+{
+    "title": "Nome da sua loja",
+    "complement": "Seu Slogan",
+    "shelfTitle": "Lista ou Menu",
+    "productTitle": "Produtos",
+    "minimumOrderAmount": 20,
+    "phone": "99999999999",
+    "questions": {
+        "address": "true",
+        "phone": "true"
+    },
+    "taxes": [
+        {
+            "name": "Entrega",
+            "value": 10
+        }
+    ],
+    "categories": [
+        {
+            "name": "Promoções",
+            "order": 1
+        },
+        {
+            "name": "Mais vendidos",
+            "order": 2
+        },
+        {
+            "name": "Categoria 1",
+            "order": 3
+        },
+        {
+            "name": "Categoria 2",
+            "order": 1
+        }
+    ],
+    "paym": {
+        "money": true,
+        "credit": true,
+        "transfer": {
+            "enable": true,
+            "bank": "bank01",
+            "account": "001-9383",
+            "document": "doc: 890218290"
+        }
+    }
+}
