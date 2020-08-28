@@ -16,6 +16,7 @@ service.update = async (data) => {
 service.control = async (data) => {
     var product = await ProductModel.findById(data.id)
     product.enable = data.enable;
+    product.category = data.category;
     
     return await product.save()
 }
