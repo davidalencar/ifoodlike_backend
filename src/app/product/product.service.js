@@ -22,7 +22,12 @@ service.control = async (data) => {
 }
 
 service.getByStore = async(store) => {
-    return ProductModel.find({'store': store}).select({'store': 0, '__v': 0})
+    return ProductModel.find({'store': store}).select({'store': 0, '__v': 0, 'cost': 0})
 }
+
+service.getByStoreControl = async(store) => {
+    return ProductModel.find({'store': store}).sort({'name': 'asc'});
+}
+
 
 module.exports = service

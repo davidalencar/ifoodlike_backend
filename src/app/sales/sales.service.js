@@ -4,8 +4,6 @@ const service = {};
 
 
 service.create = async (data) => {
-
-
     var customer = await CustomerModel.findOne({ 'phone': data.customer.phone });
 
     if (!customer) customer = await new CustomerModel(data.customer).save()
@@ -20,7 +18,7 @@ service.create = async (data) => {
 
 
 service.getByStore = async (store) => {
-    const sales = await SalesModel.find({ 'store': store }).sort({'salesId': 'asc'}) .populate('cust')
+    const sales = await SalesModel.find({ 'store': store }).sort({'salesId': 'asc'}).populate('cust').populate('lines.productId')
 
     return sales;
 }

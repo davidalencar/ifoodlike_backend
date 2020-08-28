@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get('/:id', auth, async (req, res) => {
     const store = await storeService.getByName(req.params.id)
-    const products = await service.getByStore(req.params.id)
+    const products = await service.getByStoreControl(req.params.id)
         
         res.send({
             categories: store.categories,

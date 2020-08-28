@@ -21,6 +21,8 @@ const salesSchema = new mongoose.Schema({
     }],
     lines: [{
         qty: Number,
+        productId: { type: Schema.Types.ObjectId, ref: 'Product' },
+        
         product: String,
         amount: Number,
         items: [{
