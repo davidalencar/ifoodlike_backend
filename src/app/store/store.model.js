@@ -13,15 +13,15 @@ const storeSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 60,
-        match: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/        
+        match: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/
     },
     title: {
         type: String,
         trim: true,
         required: true,
-        maxlength: 60       
+        maxlength: 60
     },
-    complement:{
+    complement: {
         type: String,
         trim: true,
         required: true,
@@ -44,12 +44,12 @@ const storeSchema = new mongoose.Schema({
         default: 0
     },
     phone: {
-		type: String,
-		minlength: 8,
-		maxlength: 20,
-		trim: true
+        type: String,
+        minlength: 8,
+        maxlength: 20,
+        trim: true
     },
-    questions : {
+    questions: {
         address: {
             type: Boolean,
             default: true
@@ -59,14 +59,14 @@ const storeSchema = new mongoose.Schema({
             default: false
         }
     },
-    taxes:[{
-        name:{
+    taxes: [{
+        name: {
             type: String,
             trim: true,
             required: true,
             maxlength: 20
-        }, 
-        value:{
+        },
+        value: {
             type: Number,
             required: true
         }
@@ -76,15 +76,28 @@ const storeSchema = new mongoose.Schema({
             type: String,
             trim: true,
             required: true,
-            maxlength: 60       
+            maxlength: 60
         },
-        enable : {
+        enable: {
             type: Boolean,
             default: true
         },
         order: {
             type: Number,
             default: 0
+        }
+    }],
+    labels: [{
+        name: {
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 60
+        },
+        color: {
+            type: String,
+            trim: true,
+            required: true
         }
     }],
     paym: {

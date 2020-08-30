@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { string } = require('joi');
+const { stream } = require('winston');
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const customerSchema = new mongoose.Schema({    
@@ -7,7 +8,7 @@ const customerSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        minlength: 5,
+        minlength: 2,
         maxlength: 60,
     }, 
 	phone: {
@@ -27,7 +28,11 @@ const customerSchema = new mongoose.Schema({
         complement: String
     },
     stores: [{
-        name: String
+        name: String,
+        label: {
+            type: String,
+            default: ''
+        }
     }]
 })
 

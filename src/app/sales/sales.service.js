@@ -6,7 +6,12 @@ const service = {};
 service.create = async (data) => {
     var customer = await CustomerModel.findOne({ 'phone': data.customer.phone });
 
-    if (!customer) customer = await new CustomerModel(data.customer).save()
+    if (!customer){
+        customer = await new CustomerModel(data.customer).save()
+    } else {
+        customer.stores.push({name: data.order.store})
+        await customer.save();
+    }
 
     data.order.cust = customer._id
 

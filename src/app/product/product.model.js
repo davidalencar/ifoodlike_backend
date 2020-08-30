@@ -30,7 +30,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 1
     },
-    
+    vend: {
+        type: String,
+        default: ''
+    },
     qty: {
         type: Number,
         default: 0
