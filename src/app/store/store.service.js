@@ -1,6 +1,9 @@
 const StoreModel = require('./store.model');
 const service = {};
-
+const dLabels = {
+    name: 'novo cliente',
+    color: '#78d372'
+}
 service.create = async (data) => {    
     var store = new StoreModel(data)
     return await store.save()
@@ -20,7 +23,9 @@ service.update = async (data) => {
 } 
 
 service.getByName = async (name) => {
-    return await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
+    var store = await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
+    store.labels.push(dLabels);
+    return store;
 }
 
 service.getByUser = async (useId) => {

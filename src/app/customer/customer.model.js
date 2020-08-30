@@ -31,7 +31,7 @@ const customerSchema = new mongoose.Schema({
         name: String,
         label: {
             type: String,
-            default: ''
+            default: 'novo cliente'
         }
     }]
 })
