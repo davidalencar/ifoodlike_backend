@@ -15,4 +15,16 @@ router.get('/:id', auth, async (req, res) => {
     })
 })
 
+
+router.put('/:id', auth, async (req, res) => {
+    
+    let saves = []
+    req.body.labes.forEach(l => {
+        saves.push(service.setLabel(l.custId, req.params.id, l.label))
+    }); 
+    Promise.all(saves).then(() => {
+        res.status(201).send({status: 'OK'})
+    })
+})
+
 module.exports = router

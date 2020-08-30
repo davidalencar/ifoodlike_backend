@@ -3,6 +3,7 @@ const router = express.Router()
 
 const auth = require('../../middlewares/auth.middleware')
 
+const storeService = require('../store/store.service');
 const service = require('../sales/sales.service')
 
 router.post('/', async (req, res) => {
@@ -23,8 +24,9 @@ router.post('/deleteMany/:id',auth, async (req, res) => {
 })
 
 router.get('/:id',auth, async (req, res) => {
+    const store = await storeService.getByName(req.params.id)
 	const sales = await service.getByStore(req.params.id)
-	res.send({sales})
+	res.send({sales, labels: store.labels})
 })
 
 router.put('/status/:id',auth, async (req, res) => {
