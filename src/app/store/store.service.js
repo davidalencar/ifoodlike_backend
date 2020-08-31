@@ -10,9 +10,10 @@ service.create = async (data) => {
 }
 
 
-service.createFromTemplate = async (name) => {    
+service.createFromTemplate = async (name, userId) => {    
     var store = new StoreModel(require('./template.json'))
     store.name = name;
+    store.user = userId;
     return await store.save()
 }
 
