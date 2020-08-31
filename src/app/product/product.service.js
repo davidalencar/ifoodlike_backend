@@ -13,6 +13,10 @@ service.update = async (data) => {
     return await product.save()
 }
 
+service.delete= async (id) => {
+    return await ProductModel.findByIdAndDelete(id);
+}
+
 service.control = async (data) => {
     var product = await ProductModel.findById(data.id)
     product.enable = data.enable;
