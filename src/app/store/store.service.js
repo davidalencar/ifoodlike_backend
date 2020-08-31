@@ -25,7 +25,11 @@ service.update = async (data) => {
 
 service.getByName = async (name) => {
     var store = await StoreModel.findOne({'name': name}).select({'_id': 0, '__v': 0, 'taxes._id': 0})
-    store.labels.push(dLabels);
+    if (store.labels == undefined) {
+        store.labels = [dLabels]
+    } else  {
+        store.labels.push(dLabels);
+    }
     return store;
 }
 
