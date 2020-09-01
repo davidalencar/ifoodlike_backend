@@ -33,12 +33,6 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 60
     },
-    productTitle: {
-        type: String,
-        trim: true,
-        required: true,
-        maxlength: 20
-    },
     minimumOrderAmount: {
         type: Number,
         default: 0
