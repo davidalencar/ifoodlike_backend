@@ -103,7 +103,11 @@ const storeSchema = new mongoose.Schema({
             account: String,
             document: String,
         }
-    }
+    },
+    workday: [{
+        day: Number,
+        hours: [{from: Number, to: Number}]
+    }]
 });
 
 module.exports = mongoose.model("Store", storeSchema);
