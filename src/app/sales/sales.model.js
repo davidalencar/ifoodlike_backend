@@ -6,6 +6,7 @@ const salesSchema = new mongoose.Schema({
     store: String,
     status: {type: String, default: 'received'},
     time : { type : Date, default: Date.now },
+    schedule: { date: Date, period: String},    
     cust: { type: Schema.Types.ObjectId, ref: 'Customer' },
     paymMethod: String,
     totalAmount: Number,
