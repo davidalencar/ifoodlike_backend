@@ -103,10 +103,11 @@ const storeSchema = new mongoose.Schema({
             account: String,
             document: String,
         }
-    },
+    },    
+    allowScheduleOrder: Boolean ,
     workday: [{
         day: Number,
-        hours: [{from: Number, to: Number}]
+        hours: [{ from: Number, to: Number }]
     }]
 });
 
