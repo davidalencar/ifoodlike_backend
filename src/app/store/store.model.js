@@ -21,6 +21,10 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 60
     },
+    logo: {
+        type: String,
+        default: ''
+    },
     complement: {
         type: String,
         trim: true,
