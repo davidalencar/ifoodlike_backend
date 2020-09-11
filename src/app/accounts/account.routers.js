@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
 	res.send({
 		access_token,
 		userName: user.name,
+		userPlan: user.plan,
 		stores
 	})
 })
