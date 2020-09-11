@@ -6,11 +6,7 @@
     "unitTitle": "Unit",
     "productTitle": "Products",
     "minimumOrderAmount": 20,
-    "phone": "55118978979879",
-    "questions": {
-        "address" : "true",
-        "phone" : "true"
-    },
+    "phone": "55118978979879",  
     "taxes": [
         {
             "name": "Delivery",

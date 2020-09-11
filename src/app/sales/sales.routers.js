@@ -23,9 +23,9 @@ router.post('/deleteMany/:id',auth, async (req, res) => {
     })   
 })
 
-router.get('/:id',auth, async (req, res) => {
+router.get('/:id/:status',auth, async (req, res) => {
     const store = await storeService.getByName(req.params.id)
-	const sales = await service.getByStore(req.params.id)
+	const sales = await service.getByStore(req.params.id, req.params.status)
 	res.send({sales, labels: store.labels})
 })
 

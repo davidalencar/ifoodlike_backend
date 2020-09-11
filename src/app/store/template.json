@@ -4,11 +4,7 @@
     "shelfTitle": "Lista ou Menu",
     "productTitle": "Produtos",
     "minimumOrderAmount": 20,
-    "phone": "99999999999",
-    "questions": {
-        "address": "true",
-        "phone": "true"
-    },
+    "phone": "99999999999",   
     "taxes": [
         {
             "name": "Entrega",

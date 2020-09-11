@@ -22,8 +22,8 @@ service.create = async (data) => {
 }
 
 
-service.getByStore = async (store) => {
-    const sales = await SalesModel.find({ 'store': store }).sort({'salesId': 'asc'}).populate('cust').populate('lines.productId')
+service.getByStore = async (store, status) => {
+    const sales = await SalesModel.find({ 'store': store, 'status' : status }).sort({'salesId': 'asc'}).populate('cust').populate('lines.productId')
 
     return sales;
 }
