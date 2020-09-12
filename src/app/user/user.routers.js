@@ -2,6 +2,7 @@
 const express = require("express")
 
 const service = require('./user.service')
+const auth = require('../../middlewares/auth.middleware')
 
 const router = express.Router()
 
@@ -23,5 +24,18 @@ router.post('/', async (req, res) => {
 		res.status(201).send({status: e.msg})
 	})
 });
+
+router.post('/:id/pwd', auth, async (req, res) => {
+			
+	
+	service.changePwd(req.user.id, req.body.newPwd).then( user => {
+		
+		res.status(201).send({status: 'OK', user});
+	}).catch(e => {
+		
+		res.status(201).send({status: e.msg, user: null})
+	})
+});
+
 
 module.exports = router

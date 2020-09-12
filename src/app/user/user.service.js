@@ -39,7 +39,7 @@ services.createWithStore = async (data) => {
 		console.log('----------------ERROR', error);
 		throw { msg: 'Error ao criar usuário' }
 	}
-	
+
 };
 
 async function hashPassword(password) {
@@ -58,5 +58,12 @@ services.generateAuthToken = async (user) => {
 	return jwt.sign(data, config.get("jwtPrivateKey"));
 }
 
+services.changePwd = async (userId, newPwd) => {
+
+	const user = await UserModel.findById(userId);
+	user.password = await hashPassword(newPwd);
+
+	return await user.save();
+}
 
 module.exports = services;
