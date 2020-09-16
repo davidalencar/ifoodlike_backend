@@ -10,6 +10,7 @@ service.create = async (data) => {
         customer = await new CustomerModel(data.customer).save()
     } else {
         customer.stores.push({name: data.order.store})
+        customer.address = data.customer.address;
         await customer.save();
     }
 

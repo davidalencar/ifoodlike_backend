@@ -25,7 +25,9 @@ const customerSchema = new mongoose.Schema({
         district: String,
         city: String,
         state: String,
-        complement: String
+        complement: String,
+        lat: Number,
+        lon: Number
     },
     stores: [{
         name: String,
