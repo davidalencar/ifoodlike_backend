@@ -15,9 +15,9 @@ const productSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 255
-    },
+    },    
     distinct: {
-        tybe: boolean,
+        type: Boolean,
         default: true
     },
     unit: {
