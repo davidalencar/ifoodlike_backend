@@ -16,6 +16,10 @@ const productSchema = new mongoose.Schema({
         trim: true,
         maxlength: 255
     },
+    distinct: {
+        tybe: boolean,
+        default: true
+    },
     unit: {
         type: String,
         trim: true,
