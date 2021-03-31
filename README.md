@@ -70,14 +70,11 @@ Muito ainda pode ser feito para a evolução desse projeto, é importante termos
 
 Para nos ajudar a manter a organização e legibilidade dos códigos utilizamos a ferramenta [eslint](https://eslint.org/).
 
+
 Para executar a verificação do código utilize o comando:
 
 ```
 make lint
 ```
 
-Alguns erros podem ser corrigidos automaticamente utilizando o comando:
-
-```
-make lint
-```
+Alguns erros podem ser corrigidos automaticamente.
