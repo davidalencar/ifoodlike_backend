@@ -55,7 +55,7 @@ Uma vez que todas as configurações foram feitas, basta executar o comando abai
 make start
 ```
 
-## Rodando a aplicação com (nodemon)[https://www.npmjs.com/package/nodemon]
+## Rodando a aplicação com nodemon
 O nodemon executará a aplicação e fará monitoriamento de todos os arquivos **.js** para reinicia-la quando qualquer um deles forem alterados.
 
 ```
