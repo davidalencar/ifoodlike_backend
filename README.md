@@ -52,7 +52,7 @@ make test
 Uma vez que todas as configurações foram feitas, basta executar o comando abaixo em **_(/VRCA$)_**
 
 ```
-make start
+make dev
 ```
 
 ## Rodando a aplicação com nodemon
