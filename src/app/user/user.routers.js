@@ -19,9 +19,10 @@ router.get('/:email', (req, res) => {
 router.post('/', async (req, res) => {
 			
 	service.createWithStore(req.body).then( user => {
+		
 		res.status(201).send({status: 'OK', user})
 	}).catch(e => {
-		res.status(201).send({status: e.msg})
+		res.status(400).send({status: e.msg})
 	})
 });
 
@@ -33,7 +34,7 @@ router.post('/:id/pwd', auth, async (req, res) => {
 		res.status(201).send({status: 'OK', user});
 	}).catch(e => {
 		
-		res.status(201).send({status: e.msg, user: null})
+		res.status(400).send({status: e.msg, user: null})
 	})
 });
 

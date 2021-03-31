@@ -3,5 +3,6 @@
     "email" : "useremail-login@email.com",
     "phone": "8888888888888",
     "plan": "pro",
-    "password": "password@1234"
+    "password": "password@1234",
+    "store" : "umalojaqualquer"
 }

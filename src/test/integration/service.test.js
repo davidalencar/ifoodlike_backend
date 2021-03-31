@@ -43,7 +43,7 @@ context('integration tests', function () {
             it('Should login', function (done) {
                 const payload = {
                     email: 'useremail-login@email.com',
-                    password: 'password@1234'
+                    password: 'gIUK31HNOyO3'
                 }
 
                 request(server)
@@ -69,9 +69,9 @@ context('integration tests', function () {
                     .send(payload)
                     .expect(201)
                     .expect((res) => {
-                        expect(res.body.name).toBeDefined()
-                        expect(res.body.userId).toBeDefined()
-                        expect(res.body.plan).toBe('pro')
+                        expect(res.body.user.name).toBeDefined()
+                        expect(res.body.user.userId).toBeDefined()
+                        expect(res.body.user.plan).toBe('pro')
                     })
                     .end(done)
             })
@@ -143,10 +143,7 @@ context('integration tests', function () {
     describe(':id/products', function () {
         describe('POST/', function () {
             it('Should cretae a product', function (done) {
-                seed = require('../seed/product.json')
-                const payload = {
-                    products: [seed]
-                }
+                const payload = require('../seed/product.json');
                 userService.generateAuthToken(user_test).then(token => {
                     request(server)
                         .post('/products/store01')
@@ -155,7 +152,7 @@ context('integration tests', function () {
                         .send(payload)
                         .expect(201)
                         .expect((res) => {
-                            expect(res.body.status).toBeDefined()
+                            expect(res.body.name).toBeDefined()
                         })
                         .end(done)
                 })

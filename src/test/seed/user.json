@@ -3,5 +3,6 @@
     "email" : "useremail@email.com",
     "phone": "99999999999",
     "plan": "pro",
-    "password": "password@1234"
+    "password": "password@1234",
+    "store" : "outralojaqualquer"
 }
