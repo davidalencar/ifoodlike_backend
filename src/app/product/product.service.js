@@ -3,12 +3,12 @@ const service = {};
 
 
 service.create = async (data) => {
-    product = new ProductModel(data)
+    const product = new ProductModel(data)
     return await product.save()
 }
 
 service.update = async (data) => {
-    var product = await ProductModel.findById(data._id)
+    const product = await ProductModel.findById(data._id)
     product.overwrite(data)
     return await product.save()
 }

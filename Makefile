@@ -12,3 +12,6 @@ test:
 
 nodemon:
 	npm run nodemon
+
+lint:
+	npx eslint . --fix

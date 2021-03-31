@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const request = require("supertest");
 const expect = require('expect')
 const ProductModel = require('../../app/product/product.model')
@@ -6,7 +5,7 @@ const StoreModel = require('../../app/store/store.model')
 const UserModel = require('../../app/user/user.model')
 const userService = require('../../app/user/user.service')
 const server = require('../../server');
-const { func } = require('joi');
+
 
 var store_test = null
 var user_test = null
@@ -186,7 +185,7 @@ context('integration tests', function () {
 
     describe('POST/sales', function () {
         it('Should create sales order', function (done) {
-            payload = require('../seed/salesorder.json')
+            const payload = require('../seed/salesorder.json')
             request(server)
                 .post('/sales')
                 .set('Content-Type', 'application/json')
