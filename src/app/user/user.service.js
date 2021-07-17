@@ -14,7 +14,7 @@ services.get = async email => {
 services.create = async (data) => {
 
 	const user = new UserModel(data);
-	user.password = await hashPassword('gIUK31HNOyO3')
+	user.password = await hashPassword('{uma senha qualquer}')
 
 	return await user.save();
 };
