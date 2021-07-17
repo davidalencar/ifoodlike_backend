@@ -1,4 +1,6 @@
-# LOJA API
+#  IFood Like Backend em NODEJS
+
+Criado junto com meu projeto em [Angula](https://github.com/davidalencar/ifoodlike_angular_frontend) esse garotão está rodando em um heroku.
 
 ## Construído com:
 - [express](https://github.com/expressjs/express)

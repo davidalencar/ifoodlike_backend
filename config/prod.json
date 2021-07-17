@@ -1,5 +1,0 @@
-{
-    "ENV": {
-        "MONGODB_URI": "mongodb+srv://heroku_z0262w03:m3pns0rltupjs9ufd0buia5s4l@cluster0.uckpw.mongodb.net/heroku_z0262w03"        
-    }
-}

@@ -10,5 +10,5 @@ module.exports = function() {
 			retryWrites: false
 		})
         .then(() => winston.info(`Connected to DB: ${process.env.MONGODB_URI}`))
-        .catch((e) => winston.error(e))        
+        .catch((e) => winston.error(e))
 };
