@@ -1,6 +1,10 @@
 #  IFood Like Backend em NODEJS
 
+AVISO: Projeto criado apenas para responder ao IFoodLIke frontend com fim de estudo. Você vai notar que existem vários pontos a melhorar a começar pela conertura de testes.
+
 Criado junto com meu projeto em [Angula](https://github.com/davidalencar/ifoodlike_angular_frontend) esse garotão está rodando em um heroku.
+
+
 
 ## Construído com:
 - [express](https://github.com/expressjs/express)
